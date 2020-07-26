@@ -15,6 +15,7 @@ import android.util.Log
 
 class TaskAlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
+        Log.d("TaskApp", "onReceive")
         val notificationManager = context!!.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         // SDKバージョンが26以上の場合、チャネルを設定する必要がある
