@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import java.text.SimpleDateFormat
 import java.util.*
+import android.util.Log
 
 class TaskAdapter(context: Context): BaseAdapter() {
     private val mLayoutInflater: LayoutInflater
@@ -40,6 +41,12 @@ class TaskAdapter(context: Context): BaseAdapter() {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.JAPANESE)
         val date = taskList[position].date
         textView2.text = simpleDateFormat.format(date)
+
+//        val textView3 = view.findViewById<TextView>(android.R.id.text3)//課題追加
+//        textView3.text = taskList[position].category //課題追加
+
+//        Log.d("loglog", position.toString())
+//        Log.d("loglog", taskList[position].contents.toString())
 
         return view
     }
