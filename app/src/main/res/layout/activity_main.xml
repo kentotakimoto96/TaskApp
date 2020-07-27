@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,10 +9,16 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/editText"/>
+
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="617dp"
+        android:layout_below="@id/editText"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -22,4 +29,12 @@
         android:src="@drawable/plus"
         app:backgroundTint="@color/colorPrimary"/>
 
-</android.support.design.widget.CoordinatorLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="カテゴリーで絞り込み"
+        android:id="@+id/button1"/>
+
+
+</RelativeLayout>
+
