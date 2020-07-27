@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         button1.setOnClickListener {
             // EditTextの文字列をTextViewに設定
-            val taskRealmResults = mRealm.where(Task::class.java).equalTo("category","1").sort("date", Sort.DESCENDING)
+            val taskRealm = mRealm.where(Task::class.java).equalTo("category",editText.text.toString()).sort("date", Sort.DESCENDING)
 
             // 上記の結果を、TaskList としてセットする
-            mTaskAdapter.taskList = mRealm.copyFromRealm(taskRealmResults)
+            mTaskAdapter.taskList = mRealm.copyFromRealm(taskRealm)
 
             // TaskのListView用のアダプタに渡す
             listView1.adapter = mTaskAdapter
