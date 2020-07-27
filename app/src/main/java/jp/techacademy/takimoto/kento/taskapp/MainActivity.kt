@@ -27,6 +27,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        button1.setOnClickListener {
+            // EditTextの文字列をTextViewに設定
+            val taskRealmResults = mRealm.where(Task::class.java).equalTo("category","1").sort("date", Sort.DESCENDING)
+
+            // 上記の結果を、TaskList としてセットする
+            mTaskAdapter.taskList = mRealm.copyFromRealm(taskRealmResults)
+
+            // TaskのListView用のアダプタに渡す
+            listView1.adapter = mTaskAdapter
+
+            // 表示を更新するために、アダプターにデータが変更されたことを知らせる
+            mTaskAdapter.notifyDataSetChanged()
+
+        }
+
         fab.setOnClickListener { view ->
             val intent = Intent(this@MainActivity, InputActivity::class.java)
             startActivity(intent)
