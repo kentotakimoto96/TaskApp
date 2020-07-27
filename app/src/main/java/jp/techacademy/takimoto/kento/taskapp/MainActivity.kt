@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         button1.setOnClickListener {
             // EditTextの文字列をTextViewに設定
-            val taskRealm = mRealm.where(Task::class.java).equalTo("category",editText.text.toString()).sort("date", Sort.DESCENDING)
+            val taskRealm = mRealm.where(Task::class.java).equalTo("category",editText.text.toString()).findAll().sort("date", Sort.DESCENDING)
 
             // 上記の結果を、TaskList としてセットする
             mTaskAdapter.taskList = mRealm.copyFromRealm(taskRealm)
